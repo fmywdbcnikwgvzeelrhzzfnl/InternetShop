@@ -1,7 +1,7 @@
 "use strict";
 
 $(document).ready(function () {
-    let logon = new Logon(".MyAccount");
+    let logon = new Logon($(".MyAccount"));
 
     $('.MyAccount').on('click', function () {
         logon.btnClick();

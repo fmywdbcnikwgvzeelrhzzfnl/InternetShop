@@ -3,7 +3,7 @@
 "use strict";
 
 function Logon(logout) {
-    if (typeof getCookie("id_user") !== "undefined") {
+    if (typeof getCookie("id_user") !== "undefined" && getCookie("id_user") !== "null") {
         //this.user = new User(getCookie("id_user"), "", "", "");
         this.user = new User($.cookie("id_user"), "", "", "");
         this.isAuthorised = true;
@@ -31,12 +31,13 @@ function Logon(logout) {
 /**
  * Запрос идентификации и аутентификации на сервер
  */
-Logon.prototype.signIn = function () {
+Logon.prototype.signIn = function (event) {
     let login = this.$login.val();
     let password = this.$password.val();
     if (this.checkForm()) {
         $.post({
             url: settings.apiUrl + 'login.json',
+            async: false,
             dataType: 'json',
             data: {
                 'username': login,
@@ -50,10 +51,10 @@ Logon.prototype.signIn = function () {
                     $.cookie("id_user", data.user.id_user);
                     this.render();
                     this.$eauth.text("");
-                    if (this.cart!==null) cart.download(this.user.id_user);
-                    window.location.href = "index.html";
+                    if (this.cart !== null) this.cart.download(this.user.id);
                 }
                 else {
+                    event.preventDefault();
                     this.$eauth.text(data.errorMessage);
                 }
                 this.render();
@@ -62,6 +63,7 @@ Logon.prototype.signIn = function () {
         });
 
     }
+    else event.preventDefault();
 };
 
 /**
@@ -71,10 +73,25 @@ Logon.prototype.btnClick = function () {
     console.log(this);
     if (this.isAuthorised) {
         this.logout();
+        if (this.cart !== null) this.cart.clearFullCart();
         //window.location.href = "index.html";
     }
     else {
-        window.location.href = "login.html";
+        /*
+                let toGo="login.html";
+
+                location=toGo;
+
+              document.location.href=toGo;
+                /*
+                        location.replace(toGo);
+
+                        window.location.reload();
+
+                        document.location.replace(toGo);
+
+                        //window.location.href = toGo;
+                        */
     }
 };
 
@@ -82,6 +99,11 @@ Logon.prototype.btnClick = function () {
  * Запрос выхода из личного кабинета на сервер
  */
 Logon.prototype.logout = function () {
+    this.isAuthorised = false;
+    $.cookie("id_user", null);
+    this.cart.id_user = null;
+    this.render();
+
     if (this.isAuthorised) {
         $.post({
             url: settings.apiUrl + 'logout.json',
@@ -91,13 +113,11 @@ Logon.prototype.logout = function () {
             },
             success: function (data) {
                 if (data.result === 1) {
-                    this.isAuthorised = false;
-                    $.cookie("id_user", null);
+                    console.log("logged out" + data.result);
                 }
                 else {
                     alert(data.errorMessage);
                 }
-                this.render();
             },
             context: this
         });
@@ -129,9 +149,11 @@ Logon.prototype.render = function () {
     if (this.$logout !== null) {
         if (this.isAuthorised) {
             this.$logout.text('Logout');
+            this.$logout.attr("href", "#");
         }
         else {
             this.$logout.text('Sign In');
+            this.$logout.attr("href", "login.html");
         }
     }
 };

@@ -1811,7 +1811,7 @@ input::-moz-placeholder {
   font-weight: 700;
   text-transform: uppercase;
   border: 1px solid transparent;
-  top: 3px;
+  top: 362px;
   left: 834px;
   z-index: 900; }
 
@@ -2539,13 +2539,13 @@ grey {
     box-sizing: border-box;
     border: 1px solid transparent;
     background-color: #f16d7f;
-    color: white;
+    color: white !important;
     font-family: "Lato", sans-serif;
     font-size: 15px;
     align-items: center;
     border-radius: 4px;
     margin-bottom: 20px;
-    display: flex;
+    display: flex !important;
     justify-content: center; }
   .Login__Button:hover {
     cursor: pointer;

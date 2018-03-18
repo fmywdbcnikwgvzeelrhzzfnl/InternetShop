@@ -30,14 +30,14 @@
             logon.$elogin = $(".Login__Error_Input");
             logon.$epassword = $(".Login__Error_Password");
             logon.$eauth = $(".Login__Error_Auth");
-            $('.Login__Button').on('click', function () {
-                logon.signIn();
-
+            $('.Login__Button').on('click', function (event) {
+                logon.signIn(event);
             });
 
             $('.MyAccount').off('click');
             $('.MyAccount').on('click', function () {
                 logon.btnClick();
+
                 // var idProduct = parseInt($(this).attr('id').split('_')[1]);
                 //let idProduct = parseInt($(this).attr('data-id'));
                 //let quantity = parseInt($(this).parent().find('.count').val());
@@ -51,8 +51,8 @@
 
             let $cart = $("#CartRows");
             let $basket = $("#Basket");
-            let cartt = new Cart($cart, logon.user.id_user, $basket);
-            logon.cart = cartt;
+            let cart = new Cart($cart, logon, $basket);
+            logon.cart = cart;
 
         });
         //}
@@ -298,7 +298,7 @@
                     </div>
                 </div>
             </div>
-            <button class="MyAccount"></button>
+            <a class="MyAccount" href="#"></a>
         </div>
     </div>
 </header>
@@ -523,7 +523,7 @@
         <input class="Login__Input" type="email" placeholder="E-mail">
         <div class="Login__Error_Password"></div>
         <input class="Login__Password" type="password" placeholder="Password">
-        <div class="Login__Button" type="submit" value="Sign In">Sign In</div>
+        <a class="Login__Button" type="submit" value="Sign In" href="index.html">Sign In</a>
         <div class="Login__Links"><a href="#">Forgot password?</a><a href="registration.html">Create an account</a>
         </div>
     </form>

@@ -52,7 +52,6 @@ Cart.prototype.resultToObjects = function (data) {
     }
 };
 
-
 Cart.prototype.init = function () {
     if (this.$parent !== null) {
         //this.$parent.empty();
