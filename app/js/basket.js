@@ -75,6 +75,7 @@ Cart.prototype.removeProductRowFromCart = function ($div, product) {
     this.products.splice(this.products.indexOf(product), 1);
     $div.remove();
     this.$parent.find(".Checkout").css("top", "" + ((this.products.length) * 162 + 326) + "px");
+
 };
 
 Cart.prototype.clearFullCart = function () {
@@ -82,6 +83,8 @@ Cart.prototype.clearFullCart = function () {
     this.$parent.find(".RowProduct").remove();
     this.$parent.find(".Checkout").css("top", "" + ((this.products.length) * 162 + 326) + "px");
 };
+
+
 
 /*********************************************************************************/
 
@@ -219,8 +222,32 @@ CartProduct.prototype.changeProductCount = function ($divQuantityInput, $divPric
  * @param $div
  */
 CartProduct.prototype.removeProductRowFromCart = function ($div) {
+    this.removeProductFromServerCart();
     this.cart.removeProductRowFromCart($div, this);
 };
+
+/**
+ * Оповестить сервер об удалении товара из корзины
+ * @param cartProduct {CartProduct}
+ */
+CartProduct.prototype.removeProductFromServerCart = function () {
+    if (this.id_user !== null) {
+        $.post({
+            url: settings.apiUrl + 'deleteFromBasket.json',
+            dataType: 'json',
+            data: {
+                "id_user": this.cart.id_user,
+                "id_product": this.id
+            },
+            success: function (data) {
+
+            },
+            context: this
+        });
+    }
+};
+
+/*******************************************************************************/
 
 /**
  *
@@ -247,3 +274,4 @@ Characteristic.prototype.init = function ($parent) {
     $div.append($value);
 
 };
+
