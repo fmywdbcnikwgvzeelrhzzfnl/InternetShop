@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/stylemaket.css">
+    <link rel="stylesheet" type="text/css" href="css/animation.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,800,900" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/init.js"></script>
+</head>
+
+<body>
+<header class="Header">
+    <div class="Container HeaderFlex">
+        <div class="Left">
+            <a class="Logo" href="index.html">
+                <img class="Logo__Image" src="img/logo.png" alt="logo">
+                <span class="Logo__Text Logo__Text_color_black">BRAN
+                    <span class="Logo__Text_color_pink_bold">D</span>
+                </span>
+            </a>
+            <form action="#">
+                <input class="SearchTxt" type="text" placeholder="Search for Item...">
+                <div class="BtnExt">
+                    <button class="Btn">Browse<span class="Triangle"></span></button>
+                    <div class="DropDownMenu Row Swing-in-top-fwd">
+                        <div class="Column">
+                            <h4>WOMAN</h4>
+                            <ul>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
+                                <li><a href="#">Blazers</a></li>
+                                <li><a href="#">Denim</a></li>
+                                <li><a href="#">Leggins/Pants</a></li>
+                                <li><a href="#">Skirts/Shorts</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                            <h4>MAN</h4>
+                            <ul>
+                                <li><a href="#">Tees/Tank tops</a></li>
+                                <li><a href="#">Shirts/Polos</a></li>
+                                <li><a href="#">Sweaters</a></li>
+                                <li><a href="#">Sweatshirts/Hoodies</a></li>
+                                <li><a href="#">Blazers</a></li>
+                                <li><a href="#">Jackets/vests</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <input class="SearchBtn" type="submit" value=" ">
+
+            </form>
+        </div>
+        <div class="Right">
+            <div class="Basket">
+                <a href="cart.html">
+                    <svg class="BasketSvg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 viewBox="0 0 32 29" style="enable-background:new 0 0 32 29;" xml:space="preserve" width="32" height="29">
+                    <g>
+                        <g>
+                            <line class="st0" x1="5.3" y1="1" x2="1.3" y2="1"></line>
+                        </g>
+                        <g>
+                            <line class="st0" x1="5.3" y1="1" x2="10.6" y2="19.4"></line>
+                        </g>
+                        <g>
+                            <line class="st0" x1="14.1" y1="6.9" x2="30.8" y2="7"></line>
+                        </g>
+                        <g>
+                            <line class="st0" x1="25.3" y1="19.4" x2="30.8" y2="7"></line>
+                        </g>
+                        <g>
+                            <line class="st0" x1="10.6" y1="19.4" x2="25.3" y2="19.4"></line>
+                        </g>
+                        <g>
+                            <circle class="st1" cx="9.4" cy="26.2" r="1.6"></circle>
+                        </g>
+                        <g>
+                            <circle class="st1" cx="26.1" cy="26.2" r="1.6"></circle>
+                        </g>
+                        <g>
+                            <circle class="st2" cx="9.5" cy="26.2" r="0.8"></circle>
+                        </g>
+                        <g>
+                            <circle class="st2" cx="26.1" cy="26.2" r="0.8"></circle>
+                        </g>
+                    </g>
+                    </svg>
+                    <div class="Basket__Count">3</div>
+                </a>
+                <div class="Square10"></div>
+                <div class="DropDownMenu Row Swing-in-top-fwd">
+                    <div class="Column">
+                        <div class="CartProduct Row">
+                            <a href="product.html">
+                                <img src="img/product65mini.jpg" alt="product image">
+                                <div class="AboutProduct Column">
+                                    <h5>REBOX ZANE</h5>
+                                    <div class="Stars Row">
+                                        <div class="Estimated">
+                                            <div class="Star Row Star1">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star2">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star3">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star4">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star5">
+                                                <div class="HalfStar fas fa-star-half Active"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Estimate">
+                                            <div class="Star Row Star5">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star4">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star3">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star2">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star1">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                        </div>&nbsp;
+                                    </div>
+                                    <span class="CountPrice Row Pink">
+                                        <span class="Count">1</span>
+                                        <span class="Size_mini">&nbsp;&nbsp;x&nbsp;&nbsp;</span>
+                                        <span class="Price">$250</span>
+                                    </span>
+                                </div>
+                                <div class="ClearBtn fas fa-times-circle"></div>
+                            </a>
+                        </div>
+                        <div class="CartProduct Row">
+                            <a href="product.html">
+                                <img src="img/product42mini.jpg" alt="product image">
+                                <div class="AboutProduct Column">
+                                    <h5>REBOX ZANE</h5>
+                                    <div class="Stars Row">
+                                        <div class="Estimated">
+                                            <div class="Star Row Star1">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star2">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star3">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star4">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star5">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Estimate">
+                                            <div class="Star Row Star1">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star2">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star3">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star4">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star5">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                        </div>&nbsp;
+                                    </div>
+                                    <span class="CountPrice Row Pink">
+                                        <span class="Count">1</span>
+                                        <span class="Size_mini">&nbsp;&nbsp;x&nbsp;&nbsp;</span>
+                                        <span class="Price">$250</span>
+                                    </span>
+                                </div>
+                                <div class="ClearBtn fas fa-times-circle"></div>
+                            </a>
+                        </div>
+                        <div class="Summary Row">
+                            <span class="Left">TOTAL</span>
+                            <span class="Right">$500</span>
+                        </div>
+                        <div class="Checkout WBtn Button"><a href="checkout.html">Checkout</a></div>
+                        <div class="ToCart WBtn Button"><a href="cart.html">Go to cart</a></div>
+                    </div>
+                </div>
+            </div>
+            <button class="MyAccount"></button>
+        </div>
+    </div>
+</header>
+<nav class="Menu Container">
+    <ul>
+        <li>
+            <a href="index.html">HOME</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                    <div class="Banner">
+                        <a href="products.html">
+                            <div>
+                                <span>SUPER<br>SALE!</span>
+                            </div>
+                            <img src="img/banner.jpg" alt="banner image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">MAN</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>MAN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <h4>MAN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                    <h4>MAN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                    <div class="Banner">
+                        <a href="products.html">
+                            <div>
+                                <span>SUPER<br>SALE!</span>
+                            </div>
+                            <img src="img/banner.jpg" alt="banner image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">WOMAN</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>New</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">KIDS</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>New</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">Accoseriese</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>New</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">Featured</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>New</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">Hot Deals</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>MAN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                    <div class="Banner">
+                        <a href="products.html">
+                            <div>
+                                <span>SUPER<br>SALE!</span>
+                            </div>
+                            <img src="img/banner.jpg" alt="banner image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div class="BreadCrumbs">
+    <div class="Container">
+        <div class="Left">
+            <h2>NEW ARRIVALS</h2>
+        </div>
+        <div class="Right">
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="products.html">MAN</a></li>
+                    <li><a href="products.html" class="Active">NEW ARRIVALS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="SingleProduct ContainerW">
+    <div class="ProductSlider">
+
+        <a href="#">
+            <div class="Btn"><i class="fas fa-angle-left"></i></div>
+        </a>
+
+        <div class="">
+            <img class="ProductImg1 Active" src="img/product42_1.jpg" alt="product42_1">
+        </div>
+        <a href="#">
+            <div class="Btn"><i class="fas fa-angle-right"></i></div>
+        </a>
+    </div>
+    <div class="ProductInfo Container">
+        <p class="S14-700">
+            <span class="Color_pink">Women collection</span>
+        </p>
+        <p class="S18-400 MT18">Moschino Cheap And Chic</p>
+        <p class="S14-300 MT67">Compellingly actualize fully researched processes before proactive outsourcing.
+            Progressively syndicate collaborative architectures before cutting-edge services. Completely visualize
+            parallel core competencies rather than exceptional portals.</p>
+        <div class="MT28">
+            <span class="S14-700"><span class="Color_grey">MATERIAL:</span> COTTON</span>
+            <span class="S14-700"><span class="Color_grey">DESIGNER:</span> BINBURHAN</span>
+        </div>
+        <p class="S24-700 MT37">
+            <span class="Color_pink">$561</span>
+        </p>
+        <div class="Line"></div>
+        <form>
+            <div class="Row">
+                <div class="Selector Column Size">
+                    <input          class="Selector__Input" type="checkbox" id="color1">
+                    <div            class="Selector__Label S14-700">CHOOSE SIZE</div>
+                    <label          class="Selector__Box    SingleProduct__Selector_margin" for="color1">
+                        <span       class="Selector__Option Selector__Option_padding_no">
+                            <span   class="Selector__ColorSquare" style="background-color: #ef5b70;"></span>
+                            <span   class="Selector__Text">RED</span>
+                        </span>
+                        <i          class="Selector__Arrow fas fa-chevron-down"></i>
+                    </label>
+                    <ul             class="Selector__Options Swing-in-top-fwd2">
+                        <li         class="Selector__Option">
+                            <span   class="Selector__ColorSquare" style="background-color: #ef5b70;"></span>
+                            <span   class="Selector__Text">RED</span>
+                        </li>
+                        <li         class="Selector__Option">
+                            <span   class="Selector__ColorSquare" style="background-color: #00aa00;"></span>
+                            <span   class="Selector__Text">GREEN</span>
+                        </li>
+                        <li         class="Selector__Option">
+                            <span   class="Selector__ColorSquare" style="background-color: #0000bb;"></span>
+                            <span   class="Selector__Text">BLUE</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="Selector Column Size">
+                    <input  class="Selector__Input" type="checkbox" id="size1">
+                    <div    class="Selector__Label S14-700">CHOOSE SIZE</div>
+                    <label  class="Selector__Box    SingleProduct__Selector_margin" for="size1">S<i
+                            class="Selector__Arrow fas fa-chevron-down"></i></label>
+                    <ul     class="Selector__Options Swing-in-top-fwd2">
+                        <li class="Selector__Option">S</li>
+                        <li class="Selector__Option">M</li>
+                        <li class="Selector__Option">L</li>
+                        <li class="Selector__Option">XL</li>
+                        <li class="Selector__Option">XXL</li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <span class="S14-700">QUANTITY</span>
+                    <input name="quantity" type="text" pattern="[1-9][0-9]*" title="quantity number > 0"
+                           placeholder="number" value="1">
+                </div>
+
+            </div>
+            <input class="PinkBorderBtn" type="submit" value="Add to Cart">
+        </form>
+    </div>
+    <div class="SeeAlso">
+        <p>you may like also</p>
+    </div>
+    <div class="Products Container">
+        <article class="Product">
+            <a class="Product__Link" href="product.html">
+                <div class="Product__Photo">
+                    <img class="Product__Image" src="img/product1.jpg" alt="product1">
+                    <div class="Product__AddBtn">
+                        <svg class="BasketSvgWhite" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                         viewBox="0 0 32 29" style="enable-background:new 0 0 32 29;" xml:space="preserve" width="32" height="29">
+                        <g>
+                            <g>
+                                <line class="st0" x1="5.3" y1="1" x2="1.3" y2="1"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="5.3" y1="1" x2="10.6" y2="19.4"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="14.1" y1="6.9" x2="30.8" y2="7"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="25.3" y1="19.4" x2="30.8" y2="7"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="10.6" y1="19.4" x2="25.3" y2="19.4"></line>
+                            </g>
+                            <g>
+                                <circle class="st1" cx="9.4" cy="26.2" r="1.6"></circle>
+                            </g>
+                            <g>
+                                <circle class="st1" cx="26.1" cy="26.2" r="1.6"></circle>
+                            </g>
+                            <g>
+                                <circle class="st2" cx="9.5" cy="26.2" r="0.8"></circle>
+                            </g>
+                            <g>
+                                <circle class="st2" cx="26.1" cy="26.2" r="0.8"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                        Add to Cart
+                    </div>
+                </div>
+                <div class="Product__Info">
+                    <h2 class="Product__Name">Mango People T-shirt</h2>
+                    <span class="Product__Price Color_pink">$52.00</span>
+                </div>
+            </a>
+        </article>
+        <article class="Product">
+            <a class="Product__Link" href="product.html">
+                <div class="Product__Photo">
+                    <img class="Product__Image" src="img/product2.jpg" alt="product2">
+                    <div class="Product__AddBtn">
+                        <svg class="BasketSvgWhite" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                         viewBox="0 0 32 29" style="enable-background:new 0 0 32 29;" xml:space="preserve" width="32" height="29">
+                        <g>
+                            <g>
+                                <line class="st0" x1="5.3" y1="1" x2="1.3" y2="1"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="5.3" y1="1" x2="10.6" y2="19.4"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="14.1" y1="6.9" x2="30.8" y2="7"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="25.3" y1="19.4" x2="30.8" y2="7"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="10.6" y1="19.4" x2="25.3" y2="19.4"></line>
+                            </g>
+                            <g>
+                                <circle class="st1" cx="9.4" cy="26.2" r="1.6"></circle>
+                            </g>
+                            <g>
+                                <circle class="st1" cx="26.1" cy="26.2" r="1.6"></circle>
+                            </g>
+                            <g>
+                                <circle class="st2" cx="9.5" cy="26.2" r="0.8"></circle>
+                            </g>
+                            <g>
+                                <circle class="st2" cx="26.1" cy="26.2" r="0.8"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                        Add to Cart
+                    </div>
+                </div>
+                <div class="Product__Info">
+                    <h2 class="Product__Name">Mango People T-shirt</h2>
+                    <span class="Product__Price Color_pink">$52.00</span>
+                </div>
+            </a>
+        </article>
+        <article class="Product">
+            <a class="Product__Link" href="product.html">
+                <div class="Product__Photo">
+                    <img class="Product__Image" src="img/product3.jpg" alt="product3">
+                    <div class="Product__AddBtn">
+                        <svg class="BasketSvgWhite" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                         viewBox="0 0 32 29" style="enable-background:new 0 0 32 29;" xml:space="preserve" width="32" height="29">
+                        <g>
+                            <g>
+                                <line class="st0" x1="5.3" y1="1" x2="1.3" y2="1"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="5.3" y1="1" x2="10.6" y2="19.4"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="14.1" y1="6.9" x2="30.8" y2="7"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="25.3" y1="19.4" x2="30.8" y2="7"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="10.6" y1="19.4" x2="25.3" y2="19.4"></line>
+                            </g>
+                            <g>
+                                <circle class="st1" cx="9.4" cy="26.2" r="1.6"></circle>
+                            </g>
+                            <g>
+                                <circle class="st1" cx="26.1" cy="26.2" r="1.6"></circle>
+                            </g>
+                            <g>
+                                <circle class="st2" cx="9.5" cy="26.2" r="0.8"></circle>
+                            </g>
+                            <g>
+                                <circle class="st2" cx="26.1" cy="26.2" r="0.8"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                        Add to Cart
+                    </div>
+                </div>
+                <div class="Product__Info">
+                    <h2 class="Product__Name">Mango People T-shirt</h2>
+                    <span class="Product__Price Color_pink">$52.00</span>
+                </div>
+            </a>
+        </article>
+        <article class="Product">
+            <a class="Product__Link" href="product.html">
+                <div class="Product__Photo">
+                    <img class="Product__Image" src="img/product4.jpg" alt="product4">
+                    <div class="Product__AddBtn">
+                        <svg class="BasketSvgWhite" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                         viewBox="0 0 32 29" style="enable-background:new 0 0 32 29;" xml:space="preserve" width="32" height="29">
+                        <g>
+                            <g>
+                                <line class="st0" x1="5.3" y1="1" x2="1.3" y2="1"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="5.3" y1="1" x2="10.6" y2="19.4"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="14.1" y1="6.9" x2="30.8" y2="7"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="25.3" y1="19.4" x2="30.8" y2="7"></line>
+                            </g>
+                            <g>
+                                <line class="st0" x1="10.6" y1="19.4" x2="25.3" y2="19.4"></line>
+                            </g>
+                            <g>
+                                <circle class="st1" cx="9.4" cy="26.2" r="1.6"></circle>
+                            </g>
+                            <g>
+                                <circle class="st1" cx="26.1" cy="26.2" r="1.6"></circle>
+                            </g>
+                            <g>
+                                <circle class="st2" cx="9.5" cy="26.2" r="0.8"></circle>
+                            </g>
+                            <g>
+                                <circle class="st2" cx="26.1" cy="26.2" r="0.8"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                        Add to Cart
+                    </div>
+                </div>
+                <div class="Product__Info">
+                    <h2 class="Product__Name">Mango People T-shirt</h2>
+                    <span class="Product__Price Color_pink">$52.00</span>
+                </div>
+            </a>
+        </article>
+    </div>
+</div>
+<div class="Subscribe">
+    <div class="Container Sub">
+        <div class="Left">
+            <div>
+                <img src="img/BinBurhan.png" alt="Photo Bin Burhan">
+            </div>
+            <div>
+                <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam
+                    condimentum mattis neque sed pretium”</p>
+                <h3>
+                    Bin Burhan
+                </h3>
+                <h4>Dhaka, Bd</h4>
+                <div class="SliderRow">
+                    <div class="SliderRect"></div>
+                    <div class="SliderRect Active"></div>
+                    <div class="SliderRect"></div>
+                </div>
+            </div>
+        </div>
+        <div class="VertLine"></div>
+        <div class="Right">
+            <h5>Subscribe</h5>
+            <h6>FOR OUR NEWLETTER AND PROMOTION</h6>
+            <form action="#">
+                <input class="Txt" type="email" placeholder="Enter Your Email"><input class="SearchBtn" type="submit"
+                                                                                      value="Subscribe">
+            </form>
+        </div>
+    </div>
+    <img class="Bkg" src="img/subscribe.jpg" alt="subscribe background">
+
+</div>
+<div class="FooterMenu Container">
+    <div class="Col L1">
+        <a class="Logo" href="index.html">
+            <img class="Logo__Image" src="img/logo.png" alt="logo">
+            <span class="Logo__Text Logo__Text_color_black">BRAN
+                    <span class="Logo__Text_color_pink_bold">D</span>
+                </span>
+        </a>
+        <p>Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate
+            multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes
+            and cross-unit partnerships.</p>
+        <p>Efficiently plagiarize 24/365 action items and focused infomediaries. Distinctively seize superior
+            initiatives for wireless technologies. Dynamically optimize.</p>
+    </div>
+    <nav class="Col L2">
+        <div class="Head">
+            COMPANY
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <nav class="Col L3">
+        <div class="Head">
+            INFORMATION
+        </div>
+        <ul>
+            <li><a href="#">Tearms & Condition</a></li>
+            <li><a href="#">Provacy Policy</a></li>
+            <li><a href="#">How to Buy</a></li>
+            <li><a href="#">How to Sell</a></li>
+            <li><a href="#">Promotion</a></li>
+        </ul>
+    </nav>
+    <nav class="Col L4">
+        <div class="Head">
+            SHOP CATEGORY
+        </div>
+        <ul>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Child</a></li>
+            <li><a href="#">Apparel</a></li>
+            <li><a href="#">Brows All</a></li>
+        </ul>
+    </nav>
+</div>
+<footer class="Footer">
+    <div class="Container">
+        <p>&copy; 2017 Brand All Rights Reserved.</p>
+        <div class="Socials">
+            <a class="Social" href="#">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a class="Social" href="#">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a class="Social" href="#">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a class="Social" href="#">
+                <i class="fab fa-pinterest-p"></i>
+            </a>
+            <a class="Social" href="#">
+                <i class="fab fa-google-plus-g"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Agreement</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/stylemaket.css">
+    <link rel="stylesheet" type="text/css" href="css/animation.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,800,900" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/init.js"></script>
+</head>
+
+<body>
+<header class="Header">
+    <div class="Container HeaderFlex">
+        <div class="Left">
+            <a class="Logo" href="index.html">
+                <img class="Logo__Image" src="img/logo.png" alt="logo">
+                <span class="Logo__Text Logo__Text_color_black">BRAN
+                    <span class="Logo__Text_color_pink_bold">D</span>
+                </span>
+            </a>
+            <form action="#">
+                <input class="SearchTxt" type="text" placeholder="Search for Item...">
+                <div class="BtnExt">
+                    <button class="Btn">Browse<span class="Triangle"></span></button>
+                    <div class="DropDownMenu Row Swing-in-top-fwd">
+                        <div class="Column">
+                            <h4>WOMAN</h4>
+                            <ul>
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
+                                <li><a href="#">Blazers</a></li>
+                                <li><a href="#">Denim</a></li>
+                                <li><a href="#">Leggins/Pants</a></li>
+                                <li><a href="#">Skirts/Shorts</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                            <h4>MAN</h4>
+                            <ul>
+                                <li><a href="#">Tees/Tank tops</a></li>
+                                <li><a href="#">Shirts/Polos</a></li>
+                                <li><a href="#">Sweaters</a></li>
+                                <li><a href="#">Sweatshirts/Hoodies</a></li>
+                                <li><a href="#">Blazers</a></li>
+                                <li><a href="#">Jackets/vests</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <input class="SearchBtn" type="submit" value=" ">
+
+            </form>
+        </div>
+        <div class="Right">
+            <div class="Basket">
+                <a href="cart.html">
+                    <svg class="BasketSvg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 viewBox="0 0 32 29" style="enable-background:new 0 0 32 29;" xml:space="preserve" width="32" height="29">
+                    <g>
+                        <g>
+                            <line class="st0" x1="5.3" y1="1" x2="1.3" y2="1"></line>
+                        </g>
+                        <g>
+                            <line class="st0" x1="5.3" y1="1" x2="10.6" y2="19.4"></line>
+                        </g>
+                        <g>
+                            <line class="st0" x1="14.1" y1="6.9" x2="30.8" y2="7"></line>
+                        </g>
+                        <g>
+                            <line class="st0" x1="25.3" y1="19.4" x2="30.8" y2="7"></line>
+                        </g>
+                        <g>
+                            <line class="st0" x1="10.6" y1="19.4" x2="25.3" y2="19.4"></line>
+                        </g>
+                        <g>
+                            <circle class="st1" cx="9.4" cy="26.2" r="1.6"></circle>
+                        </g>
+                        <g>
+                            <circle class="st1" cx="26.1" cy="26.2" r="1.6"></circle>
+                        </g>
+                        <g>
+                            <circle class="st2" cx="9.5" cy="26.2" r="0.8"></circle>
+                        </g>
+                        <g>
+                            <circle class="st2" cx="26.1" cy="26.2" r="0.8"></circle>
+                        </g>
+                    </g>
+                    </svg>
+                    <div class="Basket__Count">3</div>
+                </a>
+                <div class="Square10"></div>
+                <div class="DropDownMenu Row Swing-in-top-fwd">
+                    <div class="Column">
+                        <div class="CartProduct Row">
+                            <a href="product.html">
+                                <img src="img/product65mini.jpg" alt="product image">
+                                <div class="AboutProduct Column">
+                                    <h5>REBOX ZANE</h5>
+                                    <div class="Stars Row">
+                                        <div class="Estimated">
+                                            <div class="Star Row Star1">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star2">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star3">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star4">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star5">
+                                                <div class="HalfStar fas fa-star-half Active"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Estimate">
+                                            <div class="Star Row Star5">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star4">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star3">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star2">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star1">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                        </div>&nbsp;
+                                    </div>
+                                    <span class="CountPrice Row Pink">
+                                        <span class="Count">1</span>
+                                        <span class="Size_mini">&nbsp;&nbsp;x&nbsp;&nbsp;</span>
+                                        <span class="Price">$250</span>
+                                    </span>
+                                </div>
+                                <div class="ClearBtn fas fa-times-circle"></div>
+                            </a>
+                        </div>
+                        <div class="CartProduct Row">
+                            <a href="product.html">
+                                <img src="img/product42mini.jpg" alt="product image">
+                                <div class="AboutProduct Column">
+                                    <h5>REBOX ZANE</h5>
+                                    <div class="Stars Row">
+                                        <div class="Estimated">
+                                            <div class="Star Row Star1">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star2">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star3">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star Active"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star4">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star5">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Estimate">
+                                            <div class="Star Row Star1">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star2">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star3">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star4">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                            <div class="Star Row Star5">
+                                                <div class="HalfStar fas fa-star-half"></div>
+                                                <div class="FullStar fas fa-star"></div>
+                                                <div class="EmptyStar far fa-star"></div>
+                                            </div>
+                                        </div>&nbsp;
+                                    </div>
+                                    <span class="CountPrice Row Pink">
+                                        <span class="Count">1</span>
+                                        <span class="Size_mini">&nbsp;&nbsp;x&nbsp;&nbsp;</span>
+                                        <span class="Price">$250</span>
+                                    </span>
+                                </div>
+                                <div class="ClearBtn fas fa-times-circle"></div>
+                            </a>
+                        </div>
+                        <div class="Summary Row">
+                            <span class="Left">TOTAL</span>
+                            <span class="Right">$500</span>
+                        </div>
+                        <div class="Checkout WBtn Button"><a href="checkout.html">Checkout</a></div>
+                        <div class="ToCart WBtn Button"><a href="cart.html">Go to cart</a></div>
+                    </div>
+                </div>
+            </div>
+            <button class="MyAccount"></button>
+        </div>
+    </div>
+</header>
+<nav class="Menu Container">
+    <ul>
+        <li>
+            <a href="index.html">HOME</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                    <div class="Banner">
+                        <a href="products.html">
+                            <div>
+                                <span>SUPER<br>SALE!</span>
+                            </div>
+                            <img src="img/banner.jpg" alt="banner image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">MAN</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>MAN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <h4>MAN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                    <h4>MAN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                    <div class="Banner">
+                        <a href="products.html">
+                            <div>
+                                <span>SUPER<br>SALE!</span>
+                            </div>
+                            <img src="img/banner.jpg" alt="banner image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">WOMAN</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>New</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">KIDS</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>New</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">Accoseriese</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>New</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">Featured</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>New</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li><a href="products.html">Hot Deals</a>
+            <div class="Square10"></div>
+            <div class="DropDownMenu Row Swing-in-top-fwd">
+                <div class="Column">
+                    <h4>MAN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                        <li><a href="#">Blazers</a></li>
+                        <li><a href="#">Denim</a></li>
+                        <li><a href="#">Leggins/Pants</a></li>
+                        <li><a href="#">Skirts/Shorts</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="Column">
+                    <h4>WOMEN</h4>
+                    <ul>
+                        <li><a href="#">Dresses</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Sweaters/Knits</a></li>
+                        <li><a href="#">Jackets/Coats</a></li>
+                    </ul>
+                    <div class="Banner">
+                        <a href="products.html">
+                            <div>
+                                <span>SUPER<br>SALE!</span>
+                            </div>
+                            <img src="img/banner.jpg" alt="banner image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div class="Container">
+    <div class="Agreement">
+        <h1>Пользовательское соглашение</h1>
+        <h2>Добро пожаловать в myShop!</h2>
+        <p></p>
+        <p>1.1. Предметом настоящего Пользовательского соглашения («ПС») являются отношения между ООО «myShop.ru» (ОГРН 1027569850962, Россия, 125167, г.Москва, ул.Фрунзе, дом 24), далее «Магазин», являющегося правообладателем Интернет-сервисов (информационного, коммуникационного, рекламного, образовательного, развлекательного и иного характера), расположенных в сети Интернет по адресу https://..../, а также на иных администрируемых .... доменах (далее «Интернет-сервисы», «Сервисы», «Сайт»), и Вами (физическим лицом пользователем сети Интернет), далее  «Пользователь», по поводу использования и предоставления Сервисов. Используя Сервисы, Пользователь соглашается соблюдать условия, описанные в настоящем Пользовательском соглашении. Использование определенных Сервисов может регулироваться отдельными правилами, применимыми к конкретному Сервису («Пользовательское соглашение Сервиса»), которые также являются частью данного ПС.</p>
+        <p>1.2 Пользовательское соглашение регулирует порядок использования всех Сервисов myShop. Положения настоящего Пользовательского соглашения являются обязательными для всех Пользователей, зарегистрировавшихся посредством Сервисов, либо начавших использовать любой из Сервисов.</p>
+        <p>...</p>
+        <p></p>
+    </div>
+</div>
+<div class="Subscribe">
+    <div class="Container Sub">
+        <div class="Left">
+            <div>
+                <img src="img/BinBurhan.png" alt="Photo Bin Burhan">
+            </div>
+            <div>
+                <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam
+                    condimentum mattis neque sed pretium”</p>
+                <h3>
+                    Bin Burhan
+                </h3>
+                <h4>Dhaka, Bd</h4>
+                <div class="SliderRow">
+                    <div class="SliderRect"></div>
+                    <div class="SliderRect Active"></div>
+                    <div class="SliderRect"></div>
+                </div>
+            </div>
+        </div>
+        <div class="VertLine"></div>
+        <div class="Right">
+            <h5>Subscribe</h5>
+            <h6>FOR OUR NEWLETTER AND PROMOTION</h6>
+            <form action="#">
+                <input class="Txt" type="email" placeholder="Enter Your Email"><input class="SearchBtn" type="submit"
+                                                                                      value="Subscribe">
+            </form>
+        </div>
+    </div>
+    <img class="Bkg" src="img/subscribe.jpg" alt="subscribe background">
+
+</div>
+<div class="FooterMenu Container">
+    <div class="Col L1">
+        <a class="Logo" href="index.html">
+            <img class="Logo__Image" src="img/logo.png" alt="logo">
+            <span class="Logo__Text Logo__Text_color_black">BRAN
+                    <span class="Logo__Text_color_pink_bold">D</span>
+                </span>
+        </a>
+        <p>Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate
+            multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes
+            and cross-unit partnerships.</p>
+        <p>Efficiently plagiarize 24/365 action items and focused infomediaries. Distinctively seize superior
+            initiatives for wireless technologies. Dynamically optimize.</p>
+    </div>
+    <nav class="Col L2">
+        <div class="Head">
+            COMPANY
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <nav class="Col L3">
+        <div class="Head">
+            INFORMATION
+        </div>
+        <ul>
+            <li><a href="#">Tearms & Condition</a></li>
+            <li><a href="#">Provacy Policy</a></li>
+            <li><a href="#">How to Buy</a></li>
+            <li><a href="#">How to Sell</a></li>
+            <li><a href="#">Promotion</a></li>
+        </ul>
+    </nav>
+    <nav class="Col L4">
+        <div class="Head">
+            SHOP CATEGORY
+        </div>
+        <ul>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Child</a></li>
+            <li><a href="#">Apparel</a></li>
+            <li><a href="#">Brows All</a></li>
+        </ul>
+    </nav>
+</div>
+<footer class="Footer">
+    <div class="Container">
+        <p>&copy; 2017 Brand All Rights Reserved.</p>
+        <div class="Socials">
+            <a class="Social" href="#">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a class="Social" href="#">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a class="Social" href="#">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a class="Social" href="#">
+                <i class="fab fa-pinterest-p"></i>
+            </a>
+            <a class="Social" href="#">
+                <i class="fab fa-google-plus-g"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>
