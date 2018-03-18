@@ -1,12 +1,13 @@
 /*****************************BASKET(basket.js)*************************/
 "use strict";
 
-function Cart($parent, id_user, $basketOnTop) {
-    this.id_user = id_user;
+function Cart($parent, logon, $basketOnTop) {
+    this.logon = logon;
+    this.id_user = logon === null ? null : logon.user.id;
     this.products = [];
     this.$parent = $($parent);
     this.$basketOnTop = $($basketOnTop);
-    this.download(id_user);
+    this.download(this.id_user);
 
     $("#ClearCart").on('click', () => {
         this.clearFullCart();
@@ -29,6 +30,7 @@ Cart.prototype.download = function (id_user) {
                     this.init();
                 }
                 else {
+                    this.clearFullCart();
                     alert(data.errorMessage);
                 }
             },
@@ -83,7 +85,6 @@ Cart.prototype.clearFullCart = function () {
     this.$parent.find(".RowProduct").remove();
     this.$parent.find(".Checkout").css("top", "" + ((this.products.length) * 162 + 326) + "px");
 };
-
 
 
 /*********************************************************************************/
@@ -231,6 +232,7 @@ CartProduct.prototype.removeProductRowFromCart = function ($div) {
  * @param cartProduct {CartProduct}
  */
 CartProduct.prototype.removeProductFromServerCart = function () {
+    let id = this.id;
     if (this.id_user !== null) {
         $.post({
             url: settings.apiUrl + 'deleteFromBasket.json',
@@ -240,7 +242,7 @@ CartProduct.prototype.removeProductFromServerCart = function () {
                 "id_product": this.id
             },
             success: function (data) {
-
+                console.log("product " + id + " removed from cart");
             },
             context: this
         });

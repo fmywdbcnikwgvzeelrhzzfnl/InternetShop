@@ -13,6 +13,6 @@ $(document).ready(function () {
 
     let $cart = $("#CartRows");
     let $basket = $("#Basket");
-    let cart = new Cart($cart, logon.user.id_user, $basket);
+    let cart = new Cart($cart, logon, $basket);
     logon.cart = cart;
 });
