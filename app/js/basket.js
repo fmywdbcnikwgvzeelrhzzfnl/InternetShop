@@ -25,7 +25,7 @@ Cart.prototype.download = function (id_user) {
             data: {id_user},
             success: function (data) {
                 if (data.result === 1) {
-                    page = this.resultToObjects(data.products);
+                    let page = this.resultToObjects(data.products);
                     this.init();
                 }
                 else {
