@@ -3,9 +3,10 @@
 
 function Cart($parent, logon, $basketOnTop) {
     this.logon = logon;
-    this.id_user = logon === null ? null : logon.user.id;
+    this.id_user = logon.user === null ? null : logon.user.id;
     this.products = [];
     this.$parent = $($parent);
+    this.$parent.find(".Checkout").css("top", "" + ((this.products.length) * 162 + 326) + "px");
     this.$basketOnTop = $($basketOnTop);
     this.download(this.id_user);
 
