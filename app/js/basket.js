@@ -6,13 +6,18 @@ function Cart($parent, logon, $basketOnTop) {
     this.id_user = logon.user === null ? null : logon.user.id;
     this.products = [];
     this.$parent = $($parent);
-    this.$parent.find(".Checkout").css("top", "" + ((this.products.length) * 162 + 326) + "px");
     this.$basketOnTop = $($basketOnTop);
+
+    if (this.$parent.length !== 0) {
+        this.$parent.find(".Checkout").css("top", "" + ((this.products.length) * 162 + 326) + "px");
+        $("#ClearCart").on('click', () => {
+            this.clearFullCart();
+        });
+    }
+
     this.download(this.id_user);
 
-    $("#ClearCart").on('click', () => {
-        this.clearFullCart();
-    });
+
 }
 
 /**
@@ -23,6 +28,7 @@ Cart.prototype.download = function (id_user) {
     if (id_user !== null) {
         $.post({
             url: settings.apiUrl + 'getBasket.json',
+            async: false,
             dataType: 'json',
             data: {id_user},
             success: function (data) {
@@ -37,6 +43,9 @@ Cart.prototype.download = function (id_user) {
             },
             context: this
         });
+    }
+    else {
+        this.$basketOnTop.css("display", "none");
     }
 };
 
@@ -53,6 +62,19 @@ Cart.prototype.resultToObjects = function (data) {
 };
 
 Cart.prototype.init = function () {
+    //инициализируем корзину в верхней части страницы
+    if (this.$basketOnTop != null) {
+        this.$basketOnTop.css("display", "block");
+        this.$basketOnTop.find(".Basket__Count").text(this.products.length);
+        this.$basketOnTop.find(".DropDownMenu .Column .CartProduct").remove();
+        let $summary = this.$basketOnTop.find(".Summary");
+        for (let product of this.products) {
+            product.initBasketRow($summary);
+        }
+        let fullPrice = this.calculateTotal();
+        $summary.find(".Right").text("" + fullPrice);
+    }
+    //инициализируем корзину в теле страницы
     if (this.$parent !== null) {
         //this.$parent.empty();
         this.$parent.find(".RowProduct").remove();
@@ -63,9 +85,18 @@ Cart.prototype.init = function () {
         //двигаем кнопку заказа. она position absolute, т.к. является частью формы, но отображается снаружт формы
         this.$parent.find(".Checkout").css("top", "" + (this.products.length * 162 + 326) + "px")
     }
-    if (this.$cartOnTop != null) {
+};
 
+/**
+ * Посчитать сумму по корзине
+ * @returns {number}
+ */
+Cart.prototype.calculateTotal = function () {
+    let ret = 0;
+    for (let product in this.products) {
+        ret += product.quantity * product.price;
     }
+    return ret;
 };
 
 /**
@@ -80,10 +111,19 @@ Cart.prototype.removeProductRowFromCart = function ($div, product) {
 
 };
 
+/**
+ * Очистить корзину в памяти и на экране
+ */
 Cart.prototype.clearFullCart = function () {
     this.products = [];
+    this.$basketOnTop.find(".Basket__Count").text("");
+    this.$basketOnTop.find(".DropDownMenu .Column .CartProduct").remove();
+
     this.$parent.find(".RowProduct").remove();
     this.$parent.find(".Checkout").css("top", "" + ((this.products.length) * 162 + 326) + "px");
+
+    //не хватает оповещения сервера об очистке корзины
+    console.log("здесь должно быть оповещение сервера об очистке корзины целиком");
 };
 
 
@@ -103,6 +143,7 @@ function CartProduct(cart, obj) {
     this.characteristics = [];
 
     this.cart = cart;
+    this.$insertBefore = null;
 
     this.full_price = this.price * this.quantity + this.shipping_price;
 
@@ -117,6 +158,10 @@ function CartProduct(cart, obj) {
 CartProduct.prototype = Object.create(Product.prototype);
 CartProduct.prototype.constructor = CartProduct;
 
+/**
+ * Инициализирует товар в корзине в основной части страницы (память -> HTML)
+ * @param $parent - инициализируемый товар
+ */
 CartProduct.prototype.initCartRow = function ($parent) {
     this.$parent = $($parent);
 
@@ -199,6 +244,62 @@ CartProduct.prototype.initCartRow = function ($parent) {
     });
 };
 
+
+/**
+ * Инициализирует товар в корзине в шапке страницы (память -> HTML)
+ * @param $insertBefore - элемент, перед которым вставляется товар корзины
+ */
+CartProduct.prototype.initBasketRow = function ($insertBefore) {
+    this.$insertBefore = $($insertBefore);
+
+    let $div = $('<div />', {class: "CartProduct Row"});
+    $div.insertBefore(this.$insertBefore);
+    //this.$parent.append($div);
+
+    let $divA = $('<a />', {"href": this.product_page_URL});
+    $div.append($divA);
+
+    let $divAImg = $('<img />', {
+        "src": this.img_URL,
+        "alt": this.img_alt
+    });
+    $divA.append($divAImg);
+
+    let $divAAbout = $('<div />', {class: "AboutProduct Column"});
+    $divA.append($divAAbout);
+    let $divAAboutH5 = $('<h5 />', {});
+    $divAAboutH5.text(this.name);
+    $divAAbout.append($divAAboutH5);
+
+    let stars = new Stars(this.rating);
+    stars.init($divAAbout);
+
+    let $divAAboutSpan = $('<span />', {class: "CountPrice Row Pink"});
+    $divAAbout.append($divAAboutSpan);
+    let $divAAboutSpanCount = $('<span />', {class: "Count"});
+    $divAAboutSpanCount.text(this.quantity);
+    $divAAboutSpan.append($divAAboutSpanCount);
+    $divAAboutSpan.append("<span class=\"Size_mini\">&nbsp;&nbsp;x&nbsp;&nbsp;</span>");
+    let $divAAboutSpanPrice = $('<span />', {class: "Price"});
+    $divAAboutSpanPrice.text(this.price);
+    $divAAboutSpan.append($divAAboutSpanPrice);
+
+    let $divAClear = $('<div />', {class: "ClearBtn fas fa-times-circle"});
+    $divA.append($divAClear);
+
+    /*
+    //Навешиваем все обработчики
+    $divQuantityInput.on('input', () => {
+        this.changeProductCount($divQuantityInput, $divPriceP);
+    });
+
+    $divActionButton.on('click', () => {
+        this.removeProductRowFromCart($div);
+    });
+    */
+};
+
+
 /**
  * Пересчитать количество товаров в страничном представлении корзины
  * @param $divQuantityInput
@@ -252,7 +353,7 @@ CartProduct.prototype.removeProductFromServerCart = function () {
 /*******************************************************************************/
 
 /**
- *
+ * Характеристики товара для тела страницы корзины
  * @param obj {{name,value}}
  * @constructor
  */
@@ -277,3 +378,80 @@ Characteristic.prototype.init = function ($parent) {
 
 };
 
+/****************************************************************/
+
+/**
+ * Класс - панель звезд, означающих оценку товара, позволяющих оценивать товар кликом по нему
+ * @param starsCount
+ * @constructor
+ */
+function Stars(starsCount) {
+    this.starsCount = starsCount;
+    //console.log(starsCount);
+}
+
+Stars.prototype.init = function ($parent) {
+    this.$parent = $($parent);
+    let newStar = null;
+
+    let $div = $('<div />', {class: "Stars Row"});
+    this.$parent.append($div);
+
+    //Estimated
+    let $estimated = $('<div />', {class: "Estimated"});
+    $div.append($estimated);
+    for (let i = 0; i < 5; i++) {
+        newStar = new Star(this.starsCount - i);
+        newStar.init($estimated);
+    }
+
+    //Estimate
+    let $estimate = $('<div />', {class: "Estimate"});
+    $div.append($estimate);
+    for (let i = 0; i < 5; i++) {
+        newStar = new Star(0);
+        newStar.init($estimate);
+    }
+};
+
+
+/****************************************************************/
+
+/**
+ * Класс - звезда (используется для отображения оценки товара)
+ * @param starsCount {number} - число от 0 до 1. если 0, звезда не активна. если 1, активна. если 0.5, то активна половина звезды
+ * @constructor
+ */
+function Star(starsCount) {
+    //получаем 0, 0.5 или 1
+    //if (starsCount < 0) this.starsCount = 0;
+    //else this.starsCount = Math.round((starsCount - Math.floor(starsCount)) * 2) / 2;
+    this.starsCount = starsCount;
+    //console.log(starsCount, this.starsCount);
+}
+
+Star.prototype.init = function ($parent) {
+    this.$parent = $($parent);
+
+    let $div = $('<div />', {class: "Star Row"});
+    this.$parent.append($div);
+
+    //HalfStar
+    let $halfStar = $('<div />', {class: "HalfStar fas fa-star-half"});
+    $div.append($halfStar);
+
+    //FullStar
+    let $fullStar = $('<div />', {class: "FullStar fas fa-star"});
+    $div.append($fullStar);
+
+    //EmptyStar
+    let $emptyStar = $('<div />', {class: "EmptyStar far fa-star"});
+    $div.append($emptyStar);
+
+    //делаем активной необходимую звезду
+    let temp = Math.round((this.starsCount - Math.floor(this.starsCount)) * 2) / 2;
+    if (this.starsCount >= 1 || temp === 1) $fullStar.addClass("Active");
+    else {
+        if (this.starsCount > 0 && temp !== 0) $halfStar.addClass("Active");
+    }
+};
