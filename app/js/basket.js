@@ -490,9 +490,11 @@ Star.prototype.init = function ($parent) {
     $div.append($emptyStar);
 
     //делаем активной необходимую звезду
-    let temp = Math.round((this.starsCount - Math.floor(this.starsCount)) * 2) / 2;
-    if (this.starsCount >= 1 || temp === 1) $fullStar.addClass("Active");
-    else {
-        if (this.starsCount > 0 && temp !== 0) $halfStar.addClass("Active");
+    if (this.starsCount > 0) {
+        let temp = Math.round((this.starsCount - Math.floor(this.starsCount)) * 2) / 2;
+        if (this.starsCount >= 1 || temp === 1) $fullStar.addClass("Active");
+        else {
+            if (this.starsCount > 0 && temp !== 0) $halfStar.addClass("Active");
+        }
     }
 };
