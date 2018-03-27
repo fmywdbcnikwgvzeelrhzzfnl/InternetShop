@@ -6,10 +6,13 @@
   "dependencies": {
     "jquery": "^3.3.1",
     "jquery-ui": "^1.12.1",
-    "jquery.cookie": "^1.4.1",
-    "npm": "^5.7.1"
+    "jquery.cookie": "^1.4.1"
   },
   "devDependencies": {
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "jquery.cookie": "^1.4.1",
+    "npm": "^5.7.1",
     "browser-sync": "^2.23.6",
     "del": "^3.0.0",
     "gulp": "^3.9.1",

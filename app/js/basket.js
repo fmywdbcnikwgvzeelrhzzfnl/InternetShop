@@ -104,11 +104,11 @@ Cart.prototype.calculateTotal = function () {
  * @param $div
  * @param product {CartProduct}
  */
-Cart.prototype.removeProductRowFromCart = function ($div, product) {
+Cart.prototype.removeProductRowFromCart = function (product) {
     this.products.splice(this.products.indexOf(product), 1);
-    $div.remove();
+    if (product.$divOnBody !== null) product.$divOnBody.remove();
+    if (product.$divOnTop !== null) product.$divOnTop.remove();
     this.$parent.find(".Checkout").css("top", "" + ((this.products.length) * 162 + 326) + "px");
-
 };
 
 /**
@@ -146,6 +146,8 @@ function CartProduct(cart, obj) {
     this.$insertBefore = null;
 
     this.full_price = this.price * this.quantity + this.shipping_price;
+    this.$divOnTop = null; //HTML элемент, соответствующий данному продукту в шапке
+    this.$divOnBody = null; //HTML элемент, соответствующий данному продукту на странице корзины
 
     let newCharacteristic = null;
 
@@ -167,6 +169,7 @@ CartProduct.prototype.initCartRow = function ($parent) {
 
     let $div = $('<div />', {class: "RowProduct"});
     this.$parent.append($div);
+    this.$divOnBody = $div;
 
     //Detail
     let $divDetail = $('<div />', {class: "Detail"});
@@ -240,7 +243,7 @@ CartProduct.prototype.initCartRow = function ($parent) {
     });
 
     $divActionButton.on('click', () => {
-        this.removeProductRowFromCart($div);
+        this.removeProductRowFromCart();
     });
 };
 
@@ -254,6 +257,7 @@ CartProduct.prototype.initBasketRow = function ($insertBefore) {
 
     let $div = $('<div />', {class: "CartProduct Row"});
     $div.insertBefore(this.$insertBefore);
+    this.$divOnTop = $div;
     //this.$parent.append($div);
 
     let $divA = $('<a />', {"href": this.product_page_URL});
@@ -286,6 +290,10 @@ CartProduct.prototype.initBasketRow = function ($insertBefore) {
 
     let $divAClear = $('<div />', {class: "ClearBtn fas fa-times-circle"});
     $divA.append($divAClear);
+    $divAClear.on('click', (event) => {
+        event.preventDefault();
+        this.removeProductRowFromBasket();
+    });
 
     /*
     //Навешиваем все обработчики
@@ -321,11 +329,18 @@ CartProduct.prototype.changeProductCount = function ($divQuantityInput, $divPric
 
 /**
  * Удалить продукт из корзины (обработчик кнопки в строчном представлении)
- * @param $div
  */
-CartProduct.prototype.removeProductRowFromCart = function ($div) {
+CartProduct.prototype.removeProductRowFromCart = function () {
     this.removeProductFromServerCart();
-    this.cart.removeProductRowFromCart($div, this);
+    this.cart.removeProductRowFromCart(this);
+};
+
+/**
+ * Удалить продукт из корзины (обработчик кнопки удаления в корзине в шапке страниц)
+ */
+CartProduct.prototype.removeProductRowFromBasket = function () {
+    this.removeProductFromServerCart();
+    this.cart.removeProductRowFromCart(this);
 };
 
 /**
