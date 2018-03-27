@@ -71,8 +71,6 @@ Cart.prototype.init = function () {
         for (let product of this.products) {
             product.initBasketRow($summary);
         }
-        let fullPrice = this.calculateTotal();
-        $summary.find(".Right").text("" + fullPrice);
     }
     //инициализируем корзину в теле страницы
     if (this.$parent !== null) {
@@ -85,6 +83,8 @@ Cart.prototype.init = function () {
         //двигаем кнопку заказа. она position absolute, т.к. является частью формы, но отображается снаружт формы
         this.$parent.find(".Checkout").css("top", "" + (this.products.length * 162 + 326) + "px")
     }
+    //обновляем сумму по корзине
+    this.updateTotal();
 };
 
 /**
@@ -93,10 +93,35 @@ Cart.prototype.init = function () {
  */
 Cart.prototype.calculateTotal = function () {
     let ret = 0;
-    for (let product in this.products) {
+    for (let product of this.products) {
         ret += product.quantity * product.price;
     }
     return ret;
+};
+
+Cart.prototype.updateTotal = function () {
+    if (this.$basketOnTop != null) {
+        this.$basketOnTop
+            .find(".Summary .Right")
+            .text("$" + this.calculateTotal());
+        if (this.products.length > 0) {
+            this.$basketOnTop
+                .find(".Basket__Count")
+                .css("display", "flex")
+                .text(this.products.length);
+        }
+        else {
+            this.$basketOnTop
+                .find(".Basket__Count")
+                .css("display", "none");
+        }
+    }
+    if (this.$parent != null) {
+        //логически не понимаю, в чем была задумка дизайнера,
+        // когда делал 2 поля, поэтому цифры будут одинаковые
+        $("#SubTotal").text("$" + this.calculateTotal());
+        $("#GrandTotal").text("$" + this.calculateTotal());
+    }
 };
 
 /**
@@ -109,6 +134,7 @@ Cart.prototype.removeProductRowFromCart = function (product) {
     if (product.$divOnBody !== null) product.$divOnBody.remove();
     if (product.$divOnTop !== null) product.$divOnTop.remove();
     this.$parent.find(".Checkout").css("top", "" + ((this.products.length) * 162 + 326) + "px");
+    this.updateTotal();
 };
 
 /**
